@@ -38,4 +38,28 @@ router.get('/', async (req, res)=>{
     
 })
 
+//create update api 
+
+router.put('/:id', async (req, res )=>{
+    try{
+        const userId = req.params.id;
+        const updateduserData = req.body;
+
+        const respons = await Users.findByIdAndUpdate(userId, updateduserData, {
+            new :true,
+            runValidators:true,
+          })
+
+          if(!respons){
+            return res.status(404).json({error: 'user updated not clear'});
+          }
+
+          console.log('data updated');
+          res.status(200).json(respons);
+    }catch(err){
+        console.log(err);
+        res.status(500).json({error:'Problem  not complete the updated data'})
+    }
+})
+
 module.exports=router;
