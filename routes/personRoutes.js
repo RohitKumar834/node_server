@@ -104,6 +104,6 @@ router.delete('/:id', async (req , res)=>{
     }
 })
 
-
+//add server page
 
 module.exports = router;
