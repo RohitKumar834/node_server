@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 //Define the MongoDB URL
-const mongoURL='mongodb://127.0.0.1:27017/studen' // Replae 'mydatabase' with your database name
+//const mongoURL='mongodb://127.0.0.1:27017/studen' // Replae 'mydatabase' with your database name
+//const mongoURL ='mongodb+srv://pandeyrohit8340:64EwWrCUo7xSmjGE@cluster0.5sijv.mongodb.net/'
+ const mongoURL=process.env.DB_URL;
+
 //set up MongoDB connection
 mongoose.connect(mongoURL,{
     /* useNewUrlParser:true,

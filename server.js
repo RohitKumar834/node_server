@@ -1,8 +1,10 @@
  const express = require('express');
 const app = express();
 const db=require('./db');
+require('dotenv').config();
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
+const PORT = process.env.PORT || 3000
 
 //demo api
 app.get('/', function(req,res){
@@ -20,6 +22,8 @@ const userRouter = require('./routes/userRouter');
 app.use('/person', personRoutes);
 app.use('/menu', menuRouter);
 app.use('/user', userRouter);
+
+
 
 app.listen(5000, ()=>{
     console.log('use the port 5000')
